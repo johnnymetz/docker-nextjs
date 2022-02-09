@@ -1,5 +1,7 @@
 import Head from 'next/head';
+import Image from 'next/image';
 import getConfig from 'next/config';
+
 import styles from 'src/styles/Home.module.css';
 
 const { publicRuntimeConfig } = getConfig();
@@ -18,6 +20,12 @@ const Home = () => {
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
+        <Image
+          src="/nextjs-logo.svg"
+          alt="Next.js logo"
+          width={120}
+          height={70}
+        />
         <div>Environment: {NODE_ENV}</div>
       </main>
     </div>
