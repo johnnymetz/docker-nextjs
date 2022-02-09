@@ -1,6 +1,8 @@
 # Docker Next.js
 
-See the corresponding blog post:
+Working example of dockerizing a Next.js app using multi-stage builds.
+
+See the corresponding blog post: https://johnnymetz.com/posts/next-js-dockerfile/
 
 ## Getting Started
 
