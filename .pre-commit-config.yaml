@@ -1,0 +1,11 @@
+exclude: '.git'
+default_stages: [commit]
+
+ci:
+  autofix_prs: false
+
+repos:
+  - repo: https://github.com/hadolint/hadolint
+    rev: 'v2.8.0'
+    hooks:
+      - id: hadolint-docker
