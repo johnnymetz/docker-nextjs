@@ -8,7 +8,9 @@ services:
       - '3000:3000'
 
   app-dev:
-    build: .
+    build:
+      context: .
+      target: deps
     command: npm run dev
     ports:
       - '3001:3000'
