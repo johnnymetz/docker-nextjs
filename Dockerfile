@@ -11,7 +11,7 @@ FROM node:17-alpine AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY src ./src
-COPY public/ ./public
+COPY public ./public
 COPY package.json next.config.js jsconfig.json ./
 RUN npm run build
 
