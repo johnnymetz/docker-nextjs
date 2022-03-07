@@ -11,15 +11,14 @@ FROM node:17-alpine AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY src ./src
-COPY public/ ./public
+COPY public ./public
 COPY package.json next.config.js jsconfig.json ./
-RUN npm run build
+RUN npm run build && \
+  mkdir /outputs && \
+  cp -r .next public node_modules package.json /outputs
 
 # Stage 3: run
 FROM node:17-alpine
 WORKDIR /app
-COPY --from=builder /app/.next ./.next
-COPY --from=builder /app/public ./public
-COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/package.json ./
+COPY --from=builder /outputs ./
 CMD ["npm", "run", "start"]
